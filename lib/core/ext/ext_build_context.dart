@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';import 'package:flutter_basics/core/theme/theme_color.dart';/// Extension on [BuildContext]extension ExtBuildContext on BuildContext {  /// Theme  ThemeData get theme => Theme.of(this);  /// App Color  AppColors get appColor => Theme.of(this).extension<AppColors>()!;}
