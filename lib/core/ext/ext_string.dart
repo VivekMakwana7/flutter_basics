@@ -1,0 +1,1 @@
+/// Extension on String for easy methods useextension ExtString on String {  /// For appRouter path definition  String get path => '/$this';}

@@ -1,0 +1,1 @@
+/// [AppConfig] is used for All configurationclass AppConfig {  /// Initialise all thing at App Launch  void initialise() {}}

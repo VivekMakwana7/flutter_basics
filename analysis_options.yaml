@@ -13,6 +13,8 @@ linter:
     # Responsible for package imports
     always_use_package_imports: true
     depend_on_referenced_packages: false
+    # Responsible for write multiple line documentation
+    lines_longer_than_80_chars: false
 analyzer:
   exclude:
     - '**.g.dart'

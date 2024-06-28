@@ -1,0 +1,1 @@
+/// [AppRoutes] contains all navigation constant file page for navigation purposeclass AppRoutes {  /// Home page  static const String homePage = '/';  /// Test Page  static const String testPage = 'test-page';}
