@@ -4,7 +4,7 @@ linter:
   rules:
     # Responsible for Documentation
     public_member_api_docs: true
-    # Responsible for Sort pubspec.ymal packges
+    # Responsible for Sort pubspec.ymal packages
     sort_pub_dependencies: true
     # Avoid defining a one-member abstract class
     one_member_abstracts: false
