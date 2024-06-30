@@ -1,1 +1,1 @@
-// ignore_for_file: public_member_api_docs/// [AppRoutes] contains all navigation constant file page for navigation purposeclass AppRoutes {  /// Home page  static const String homePage = '/';  static const String testPage = 'test-page';}
+// ignore_for_file: public_member_api_docs/// [AppRoutes] contains all navigation constant file page for navigation purposeclass AppRoutes {  /// Home page  static const String homePage = '/';  static const String testPage = 'test-page';  static const String textPage = 'text';}

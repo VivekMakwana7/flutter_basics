@@ -1,1 +1,1 @@
-/// [AppConfig] is used for All configurationclass AppConfig {  /// Initialise all thing at App Launch  void initialise() {}}
+import 'package:flutter_basics/core/observer/cubit_observer.dart';import 'package:flutter_bloc/flutter_bloc.dart';/// [AppConfig] is used for All configurationclass AppConfig {  /// Initialise all thing at App Launch  static void initialise() {    /// Assigning our Cubit Observer to [Bloc.observer] for continue observe    Bloc.observer = CubitObserver();  }}

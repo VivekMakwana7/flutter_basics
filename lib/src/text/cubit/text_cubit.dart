@@ -1,0 +1,1 @@
+import 'package:bloc/bloc.dart';import 'package:meta/meta.dart';part 'text_state.dart';/// [TextCubit] for handle all state of Text Pageclass TextCubit extends Cubit<TextState> {  /// Initial/Default constructor  TextCubit() : super(TextInitial()) {    emit(TextUpdate());  }}
