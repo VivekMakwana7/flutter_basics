@@ -1,0 +1,1 @@
+/// Enum for Text Scaleenum AppTextScale {  /// No scaling  noScaling,  /// Linear  linear,}
