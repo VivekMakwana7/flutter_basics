@@ -14,6 +14,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   go_router: ^14.2.0
   logger: ^2.3.0
+  multi_value_listenable_builder: ^0.0.2
   very_good_analysis: ^6.0.0
 
 dev_dependencies:
