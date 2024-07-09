@@ -1,0 +1,1 @@
+/// Type of Propertyenum PropertyType {  ///  Text Field  textField,  /// Drop Down Field  dropDown,  /// Toggle Button Field  toggleButton,  /// Color Picker  colorPicker,  /// Slider  slider,  /// Has sub property  property,}
