@@ -1,0 +1,1 @@
+part of 'app_cubit.dart';/// App State@immutablesealed class AppState {}/// App Initial Statefinal class AppInitial extends AppState {}/// App Side Bar Menu Changefinal class AppSideBarMenuChangeState extends AppState {}

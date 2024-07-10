@@ -1,0 +1,1 @@
+import 'package:get_it/get_it.dart';/// Injector classclass Injector {  const Injector._();  /// Private instance of Get it  static final _injector = GetIt.instance;  /// GetIt Instance  static GetIt get instance => _injector;}
