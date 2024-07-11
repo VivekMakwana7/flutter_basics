@@ -1,0 +1,1 @@
+part of 'row_cubit.dart';/// Main State of Row@immutablesealed class RowState {}/// Initial Statefinal class RowInitial extends RowState {}/// For Increase number of box statefinal class RowBoxIncreaseState extends RowState {}/// For Row Property Update Statefinal class RowPropertyUpdateState extends RowState {}
