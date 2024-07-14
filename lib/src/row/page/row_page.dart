@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/widgets/app_divider.dart';
 import 'package:flutter_basics/core/widgets/app_dropdown.dart';
+import 'package:flutter_basics/src/main/property_widget.dart';
 import 'package:flutter_basics/src/row/cubit/row_cubit.dart';
 import 'package:flutter_basics/src/row/widgets/box_widget.dart';
-import 'package:flutter_basics/src/widgets/property_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// [RowPage] for Row's property demo

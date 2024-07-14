@@ -8,9 +8,9 @@ import 'package:flutter_basics/src/column/page/column_page.dart';
 import 'package:flutter_basics/src/error/error_page.dart';
 import 'package:flutter_basics/src/home/page/home_page.dart';
 import 'package:flutter_basics/src/home/page/test_page.dart';
+import 'package:flutter_basics/src/main/side_bar_widget.dart';
 import 'package:flutter_basics/src/row/page/row_page.dart';
 import 'package:flutter_basics/src/text/page/text_page.dart';
-import 'package:flutter_basics/src/widgets/side_bar_widget.dart';
 import 'package:go_router/go_router.dart';
 
 /// [rootNavKey] for navigation tracking
