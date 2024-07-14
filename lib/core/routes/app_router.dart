@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_basics/core/app_cubit/app_cubit.dart';
+import 'package:flutter_basics/core/di/injector.dart';
 import 'package:flutter_basics/core/ext/ext_string.dart';
+import 'package:flutter_basics/core/logger/logger_config.dart';
 import 'package:flutter_basics/core/routes/app_routes.dart';
 import 'package:flutter_basics/src/column/page/column_page.dart';
 import 'package:flutter_basics/src/error/error_page.dart';
@@ -17,6 +20,13 @@ final rootNavKey = GlobalKey<NavigatorState>();
 final appRouter = GoRouter(
   navigatorKey: rootNavKey,
   debugLogDiagnostics: true,
+  redirect: (context, state) {
+    final currentPath = state.matchedLocation;
+    'Current Path : $currentPath'.logD;
+    Injector.instance<AppCubit>().findCurrentPathAndSetSideBar(currentPath);
+
+    return null;
+  },
   routes: [
     ShellRoute(
       builder: (context, state, child) => SideBarWidget(child: child),
