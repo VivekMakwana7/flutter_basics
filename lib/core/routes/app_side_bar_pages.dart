@@ -6,7 +6,10 @@ enum SideBarPage {
   text,
 
   /// Row Page
-  row;
+  row,
+
+  /// Column Page
+  column;
 }
 
 /// Extension on Side Bar Page
@@ -18,6 +21,8 @@ extension ExtSideBarPage on SideBarPage {
         return 'Text';
       case SideBarPage.row:
         return 'Row';
+      case SideBarPage.column:
+        return 'Column';
     }
   }
 
@@ -28,6 +33,8 @@ extension ExtSideBarPage on SideBarPage {
         return AppRoutes.instance.textPage;
       case SideBarPage.row:
         return AppRoutes.instance.rowPage;
+      case SideBarPage.column:
+        return AppRoutes.instance.columnPage;
     }
   }
 }

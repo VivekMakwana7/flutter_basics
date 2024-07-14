@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_basics/core/ext/ext_string.dart';
 import 'package:flutter_basics/core/routes/app_routes.dart';
+import 'package:flutter_basics/src/column/page/column_page.dart';
 import 'package:flutter_basics/src/error/error_page.dart';
 import 'package:flutter_basics/src/home/page/home_page.dart';
 import 'package:flutter_basics/src/home/page/test_page.dart';
@@ -34,6 +35,11 @@ final appRouter = GoRouter(
           path: AppRoutes.instance.rowPage.path,
           name: AppRoutes.instance.rowPage,
           builder: (context, state) => const RowPage(),
+        ),
+        GoRoute(
+          path: AppRoutes.instance.columnPage.path,
+          name: AppRoutes.instance.columnPage,
+          builder: (context, state) => const ColumnPage(),
         ),
       ],
     ),

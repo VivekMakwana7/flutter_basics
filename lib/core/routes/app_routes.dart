@@ -13,4 +13,5 @@ class AppRoutes {
   String testPage = 'test-page';
   String textPage = 'text';
   String rowPage = 'row';
+  String columnPage = 'column';
 }
