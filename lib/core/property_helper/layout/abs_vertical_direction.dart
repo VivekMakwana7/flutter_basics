@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';/// Abstract class for Vertical Directionabstract class AbsVerticalDirection {  /// Initial property value  VerticalDirection verticalDirection = VerticalDirection.down;  /// Abstract method for change Vertical Direction  void onVerticalDirectionChanged(VerticalDirection? direction);}

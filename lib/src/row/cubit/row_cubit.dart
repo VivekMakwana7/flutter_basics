@@ -1,32 +1,40 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_basics/core/property_helper/layout/layout_helper.dart';
 
 part 'row_state.dart';
 
 /// Cubit for Handle state of Row Property
-class RowCubit extends Cubit<RowState> {
+class RowCubit extends Cubit<RowState>
+    implements
+        AbsMainAxisSize,
+        AbsMainAxisAlignment,
+        AbsCrossAxisAlignment,
+        AbsTextBaseLine,
+        AbsTextDirection,
+        AbsVerticalDirection {
   /// Default constructor
   RowCubit() : super(RowInitial());
 
   /// Number of Boxes will demonstrate
   int boxes = 3;
 
-  /// Row Property default mainAxisSize
+  @override
   MainAxisSize mainAxisSize = MainAxisSize.max;
 
-  /// Row Property mainAxisAlignment
+  @override
   MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start;
 
-  /// Row Property crossAxisAlignment
+  @override
   CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center;
 
-  /// Row Property Text Base Line
+  @override
   TextBaseline? textBaseline;
 
-  /// Row Property Text Direction
+  @override
   TextDirection? textDirection;
 
-  /// Row Property Vertical Direction
+  @override
   VerticalDirection verticalDirection = VerticalDirection.down;
 
   /// For Increase the box by 1
@@ -35,19 +43,19 @@ class RowCubit extends Cubit<RowState> {
     emit(RowBoxIncreaseState());
   }
 
-  /// For Main Axis Size Changed
+  @override
   void onMainAxisSizeChanged(MainAxisSize? size) {
     mainAxisSize = size ?? MainAxisSize.max;
     emit(RowPropertyUpdateState());
   }
 
-  /// For Main Axis Alignment Changed
+  @override
   void onMainAxisAlignmentChanged(MainAxisAlignment? alignment) {
     mainAxisAlignment = alignment ?? MainAxisAlignment.start;
     emit(RowPropertyUpdateState());
   }
 
-  /// For Cross Axis Alignment Changed
+  @override
   void onCrossAxisAlignmentChanged(CrossAxisAlignment? alignment) {
     crossAxisAlignment = alignment ?? CrossAxisAlignment.center;
 
@@ -59,19 +67,19 @@ class RowCubit extends Cubit<RowState> {
     emit(RowPropertyUpdateState());
   }
 
-  /// For Text Base Line Changed
+  @override
   void onTextBaseLineChanged(TextBaseline? baseLine) {
     textBaseline = baseLine;
     emit(RowPropertyUpdateState());
   }
 
-  /// For Text Direction Changed
+  @override
   void onTextDirectionChanged(TextDirection? direction) {
     textDirection = direction;
     emit(RowPropertyUpdateState());
   }
 
-  /// For Vertical Direction Changed
+  @override
   void onVerticalDirectionChanged(VerticalDirection? direction) {
     verticalDirection = direction ?? VerticalDirection.down;
     emit(RowPropertyUpdateState());

@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';/// Abstract class for Cross Axis Alignmentabstract class AbsCrossAxisAlignment {  /// Initial property value  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center;  /// Abstract method for change Cross Axis Alignment  void onCrossAxisAlignmentChanged(CrossAxisAlignment? alignment);}

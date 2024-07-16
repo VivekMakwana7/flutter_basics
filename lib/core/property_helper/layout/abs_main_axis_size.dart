@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';/// Abstract class for Main Axis Size Propertyabstract class AbsMainAxisSize {  /// Initial property value  MainAxisSize mainAxisSize = MainAxisSize.max;  /// Abstract method for change Main Axis Size  void onMainAxisSizeChanged(MainAxisSize? size);}

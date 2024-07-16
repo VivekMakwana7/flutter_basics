@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';/// Abstract class for Text Base Lineabstract class AbsTextBaseLine {  /// Initial property value  TextBaseline? textBaseline;  /// Abstract method for change Text Base Line  void onTextBaseLineChanged(TextBaseline? baseLine);}

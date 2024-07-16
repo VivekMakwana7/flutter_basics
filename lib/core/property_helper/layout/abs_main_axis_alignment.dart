@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';/// Abstract class for Main Axis Alignmentabstract class AbsMainAxisAlignment {  /// Initial property value  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start;  /// Abstract method for change Main Axis Alignment  void onMainAxisAlignmentChanged(MainAxisAlignment? alignment);}
