@@ -1,32 +1,45 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/core/property_helper/layout/abs_cross_axis_alignment.dart';
+import 'package:flutter_basics/core/property_helper/layout/abs_main_axis_alignment.dart';
+import 'package:flutter_basics/core/property_helper/layout/abs_main_axis_size.dart';
+import 'package:flutter_basics/core/property_helper/layout/abs_text_base_line.dart';
+import 'package:flutter_basics/core/property_helper/layout/abs_text_direction.dart';
+import 'package:flutter_basics/core/property_helper/layout/abs_vertical_direction.dart';
 
 part 'column_state.dart';
 
 /// Column Property Cubit
-class ColumnCubit extends Cubit<ColumnState> {
+class ColumnCubit extends Cubit<ColumnState>
+    implements
+        AbsMainAxisSize,
+        AbsCrossAxisAlignment,
+        AbsMainAxisAlignment,
+        AbsTextBaseLine,
+        AbsTextDirection,
+        AbsVerticalDirection {
   /// Default constructor
   ColumnCubit() : super(ColumnInitial());
 
   /// Number of Boxes are visible on Screen
   int boxes = 3;
 
-  /// Column Main Axis Size Property
+  @override
   MainAxisSize mainAxisSize = MainAxisSize.max;
 
-  /// Column Cross Axis Alignment property
+  @override
   CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center;
 
-  /// Column Main Axis Alignment property
+  @override
   MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start;
 
-  /// Column Text base Line Property
+  @override
   TextBaseline? textBaseline;
 
-  /// Column Text Direction
+  @override
   TextDirection? textDirection;
 
-  /// Column Vertical Direction
+  @override
   VerticalDirection verticalDirection = VerticalDirection.down;
 
   /// Add Box by 1
@@ -35,13 +48,13 @@ class ColumnCubit extends Cubit<ColumnState> {
     emit(ColumnBoxIncreaseState());
   }
 
-  /// On Main Axis Size Changed
+  @override
   void onMainAxisSizeChanged(MainAxisSize? size) {
     mainAxisSize = size ?? MainAxisSize.max;
     emit(ColumnPropertyUpdatetState());
   }
 
-  /// On Cross Axis Alignment Changed
+  @override
   void onCrossAxisAlignmentChanged(CrossAxisAlignment? alignment) {
     crossAxisAlignment = alignment ?? CrossAxisAlignment.center;
 
@@ -55,25 +68,25 @@ class ColumnCubit extends Cubit<ColumnState> {
     emit(ColumnPropertyUpdatetState());
   }
 
-  /// On Main Axis Alignment Changed
+  @override
   void onMainAxisAlignmentChanged(MainAxisAlignment? alignment) {
     mainAxisAlignment = alignment ?? MainAxisAlignment.center;
     emit(ColumnPropertyUpdatetState());
   }
 
-  /// On Main Axis Alignment Changed
+  @override
   void onTextBaseLineChanged(TextBaseline? line) {
     textBaseline = line;
     emit(ColumnPropertyUpdatetState());
   }
 
-  /// On Text Direction
+  @override
   void onTextDirectionChanged(TextDirection? direction) {
     textDirection = direction;
     emit(ColumnPropertyUpdatetState());
   }
 
-  /// Column vertical Direction Changed
+  @override
   void onVerticalDirectionChanged(VerticalDirection? direction) {
     verticalDirection = direction ?? VerticalDirection.down;
     emit(ColumnPropertyUpdatetState());
