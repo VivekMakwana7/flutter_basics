@@ -21,7 +21,7 @@ class AppCubit extends Cubit<AppState> {
 
   /// Find Current path and set Side bar
   void findCurrentPathAndSetSideBar(String path) {
-    for (var e in SideBarPage.values) {
+    for (final e in SideBarPage.values) {
       if (e.path.path == path) {
         onSideBarPageChanged(e);
       }

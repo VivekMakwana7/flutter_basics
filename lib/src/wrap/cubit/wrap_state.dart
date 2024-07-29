@@ -1,1 +1,1 @@
-part of 'wrap_cubit.dart';/// Wrap Main State@immutablesealed class WrapState {}/// Wrap Initial Statefinal class WrapInitial extends WrapState {}/// Wrap Box Increase Statefinal class WrapBoxIncreaseState extends WrapState {}
+part of 'wrap_cubit.dart';/// Wrap Main State@immutablesealed class WrapState {}/// Wrap Initial Statefinal class WrapInitial extends WrapState {}/// Wrap Box Increase Statefinal class WrapBoxIncreaseState extends WrapState {}/// Wrap Property Update Statefinal class WrapPropertyUpdateState extends WrapState {}
