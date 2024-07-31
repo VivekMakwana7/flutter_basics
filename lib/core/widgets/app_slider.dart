@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/ext/ext_build_context.dart';
+import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 /// App Slider Widget
@@ -39,16 +40,23 @@ class AppSlider extends StatelessWidget {
         ValueListenableBuilder(
           valueListenable: valueListenable,
           builder: (context, double? value, __) {
-            return SfSlider(
-              min: min,
-              max: max,
-              enableTooltip: true,
-              value: value ?? 1,
-              activeColor: context.theme.primaryColor,
-              tooltipShape: const SfPaddleTooltipShape(),
-              onChanged: (value) {
-                onChanged?.call(value as double);
-              },
+            return SfTheme(
+              data: SfThemeData(
+                sliderThemeData: SfSliderThemeData(
+                  tooltipBackgroundColor: context.theme.primaryColor,
+                ),
+              ),
+              child: SfSlider(
+                min: min,
+                max: max,
+                enableTooltip: true,
+                value: value ?? 1,
+                activeColor: context.theme.primaryColor,
+                tooltipShape: const SfPaddleTooltipShape(),
+                onChanged: (value) {
+                  onChanged?.call(value as double);
+                },
+              ),
             );
           },
         ),
