@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/widgets/app_divider.dart';
 import 'package:flutter_basics/core/widgets/app_dropdown.dart';
+import 'package:flutter_basics/core/widgets/app_slider.dart';
 import 'package:flutter_basics/src/main/property_widget.dart';
 import 'package:flutter_basics/src/row/widgets/box_widget.dart';
 import 'package:flutter_basics/src/wrap/cubit/wrap_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:multi_value_listenable_builder/multi_value_listenable_builder.dart';
 
 /// Wrap page is for demonstrate the [Wrap] widget
 class WrapPage extends StatelessWidget {
@@ -124,21 +126,58 @@ class WrapPage extends StatelessWidget {
                     value: cubit.textDirection,
                     onChanged: cubit.onTextDirectionChanged,
                   ),
+                  const AppDivider(height: 8),
+                  AppSlider(
+                    valueListenable: cubit.spacing,
+                    labelText: 'Spacing',
+                    onChanged: (value) => cubit.spacing.value = value,
+                    min: 0,
+                  ),
+                  const AppDivider(height: 8),
+                  AppSlider(
+                    valueListenable: cubit.runSpacing,
+                    labelText: 'Run Spacing',
+                    onChanged: (value) => cubit.runSpacing.value = value,
+                    min: 0,
+                  ),
+                  const AppDivider(height: 8),
+                  AppDropdown(
+                    items: Clip.values
+                        .map<DropdownMenuItem<Clip>>(
+                          (e) => DropdownMenuItem(
+                            value: e,
+                            child: Text(e.name),
+                          ),
+                        )
+                        .toList(),
+                    labelText: 'Clip Behavoir',
+                    value: cubit.clipBehavior,
+                    onChanged: cubit.onClipBehaviorChanged,
+                  ),
                 ],
               ),
               Expanded(
-                child: Wrap(
-                  crossAxisAlignment: cubit.crossAxisAlignment,
-                  verticalDirection: cubit.verticalDirection,
-                  alignment: cubit.alignment,
-                  direction: cubit.direction,
-                  runAlignment: cubit.runAlignment,
-                  textDirection: cubit.textDirection,
-                  children: [
-                    for (int index = 0; index < cubit.boxes; index++) ...[
-                      const BoxWidget(),
-                    ],
+                child: MultiValueListenableBuilder(
+                  valueListenables: [
+                    cubit.spacing,
+                    cubit.runSpacing,
                   ],
+                  builder: (BuildContext context, _, Widget? child) => Wrap(
+                    crossAxisAlignment: cubit.crossAxisAlignment,
+                    verticalDirection: cubit.verticalDirection,
+                    alignment: cubit.alignment,
+                    direction: cubit.direction,
+                    runAlignment: cubit.runAlignment,
+                    textDirection: cubit.textDirection,
+                    spacing: cubit.spacing.value,
+                    runSpacing: cubit.runSpacing.value,
+                    clipBehavior: cubit.clipBehavior,
+                    children: [
+                      for (int index = 0; index < cubit.boxes; index++) ...[
+                        const BoxWidget(),
+                      ],
+                    ],
+                  ),
                 ),
               ),
             ],

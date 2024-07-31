@@ -30,6 +30,15 @@ class WrapCubit extends Cubit<WrapState> implements AbsVerticalDirection {
   /// Wrap Text direction
   TextDirection? textDirection;
 
+  /// Wrap spacing
+  final spacing = ValueNotifier<double>(0);
+
+  /// Wrap Run spacing
+  final runSpacing = ValueNotifier<double>(0);
+
+  /// Wrap Clip Behavior
+  Clip clipBehavior = Clip.none;
+
   /// Add Box by 1
   void increaseBox() {
     boxes += 1;
@@ -70,5 +79,18 @@ class WrapCubit extends Cubit<WrapState> implements AbsVerticalDirection {
   void onTextDirectionChanged(TextDirection? direction) {
     textDirection = direction;
     emit(WrapPropertyUpdateState());
+  }
+
+  /// For Clip Behavoir Change
+  void onClipBehaviorChanged(Clip? behavior) {
+    clipBehavior = behavior ?? Clip.none;
+    emit(WrapPropertyUpdateState());
+  }
+
+  @override
+  Future<void> close() {
+    spacing.dispose();
+    runSpacing.dispose();
+    return super.close();
   }
 }
