@@ -12,7 +12,10 @@ enum SideBarPage {
   column,
 
   /// Wrap Page
-  wrap;
+  wrap,
+
+  /// Container Page
+  container;
 }
 
 /// Extension on Side Bar Page
@@ -28,6 +31,8 @@ extension ExtSideBarPage on SideBarPage {
         return 'Column';
       case SideBarPage.wrap:
         return 'Wrap';
+      case SideBarPage.container:
+        return 'Container';
     }
   }
 
@@ -42,6 +47,8 @@ extension ExtSideBarPage on SideBarPage {
         return AppRoutes.instance.columnPage;
       case SideBarPage.wrap:
         return AppRoutes.instance.wrapPage;
+      case SideBarPage.container:
+        return AppRoutes.instance.containerPage;
     }
   }
 }

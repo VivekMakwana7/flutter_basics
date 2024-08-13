@@ -15,4 +15,5 @@ class AppRoutes {
   String rowPage = 'row';
   String columnPage = 'column';
   String wrapPage = 'wrap';
+  String containerPage = 'container';
 }
