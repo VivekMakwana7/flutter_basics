@@ -1,3 +1,4 @@
+// Ignore
 // ignore_for_file: public_member_api_docs
 
 /// [AppRoutes] contains all navigation constant file page for navigation purpose

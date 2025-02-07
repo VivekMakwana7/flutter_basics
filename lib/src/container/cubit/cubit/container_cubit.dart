@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/enum/app_alignment.dart';
-import 'package:meta/meta.dart';
 
 part 'container_state.dart';
 

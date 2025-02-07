@@ -76,9 +76,9 @@ class ContainerPage extends StatelessWidget {
                         child: const Text('Box'),
                       );
                     },
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           );
         },

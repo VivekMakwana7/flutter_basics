@@ -16,7 +16,7 @@ class PropertyWidget extends StatelessWidget {
       height: double.infinity,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: context.appColor.sideBarBgColor.withOpacity(0.5),
+          color: context.appColor.sideBarBgColor.withValues(alpha: 0.5),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
