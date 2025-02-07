@@ -1,21 +1,23 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/enum/app_alignment.dart';
+import 'package:flutter_basics/core/enum/app_padding.dart';
+import 'package:flutter_basics/properties/padding/padding_mixin.dart';
 
 part 'container_state.dart';
 
 /// Container Cubit is for handle Container property
-class ContainerCubit extends Cubit<ContainerState> {
+class ContainerCubit extends Cubit<ContainerState> with PaddingMixin {
   /// Default constructor
   ContainerCubit() : super(ContainerInitial());
 
-  /// [height] is for height of containe widget
-  final height = ValueNotifier<double>(10);
+  /// [height] is for height of contain widget
+  final height = ValueNotifier<double>(100);
 
-  /// [width] is for width of containe widget
-  final width = ValueNotifier<double>(10);
+  /// [width] is for width of contain widget
+  final width = ValueNotifier<double>(100);
 
-  /// [color] is for color of containe widget
+  /// [color] is for color of contain widget
   Color color = Colors.red;
 
   /// [alignment] is for child alignment in box
@@ -30,6 +32,13 @@ class ContainerCubit extends Cubit<ContainerState> {
   /// For change Alignment
   void onAlignmentChanged(AppAlignment? alignment) {
     this.alignment = alignment;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Alignment
+  void onPaddingChanged(AppPadding? padding) {
+    resetPaddingValue();
+    this.padding = padding;
     emit(ContainerPropertyUpdateState());
   }
 }
