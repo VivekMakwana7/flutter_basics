@@ -7,6 +7,7 @@ import 'package:flutter_basics/core/widgets/app_slider.dart';
 import 'package:flutter_basics/src/container/cubit/cubit/container_cubit.dart';
 import 'package:flutter_basics/src/container/widgets/container_margin.dart';
 import 'package:flutter_basics/src/container/widgets/container_padding.dart';
+import 'package:flutter_basics/src/container/widgets/container_radius.dart';
 import 'package:flutter_basics/src/main/property_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multi_value_listenable_builder/multi_value_listenable_builder.dart';
@@ -64,6 +65,8 @@ class ContainerPage extends StatelessWidget {
                   const ContainerPadding(),
                   const AppDivider(height: 8),
                   const ContainerMargin(),
+                  const AppDivider(height: 8),
+                  const ContainerRadius(),
                 ],
               ),
               MultiValueListenableBuilder(
@@ -78,6 +81,10 @@ class ContainerPage extends StatelessWidget {
                   cubit.marginBottom,
                   cubit.marginLeft,
                   cubit.marginRight,
+                  cubit.radiusTop,
+                  cubit.radiusBottom,
+                  cubit.radiusLeft,
+                  cubit.radiusRight,
                 ],
                 builder: (context, _, __) {
                   return Container(
@@ -86,7 +93,10 @@ class ContainerPage extends StatelessWidget {
                     alignment: cubit.alignment?.alignment,
                     padding: cubit.paddingValue,
                     margin: cubit.marginValue,
-                    decoration: BoxDecoration(color: cubit.color),
+                    decoration: BoxDecoration(
+                      color: cubit.color,
+                      borderRadius: cubit.radiusValue,
+                    ),
                     child: const Text('Box'),
                   );
                 },
