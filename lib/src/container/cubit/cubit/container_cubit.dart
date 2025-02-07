@@ -10,7 +10,8 @@ import 'package:flutter_basics/mixins/padding_mixin.dart';
 part 'container_state.dart';
 
 /// Container Cubit is for handle Container property
-class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixin, BorderRadiusMixin {
+class ContainerCubit extends Cubit<ContainerState>
+    with PaddingMixin, MarginMixin, BorderRadiusMixin {
   /// Default constructor
   ContainerCubit() : super(ContainerInitial());
 
@@ -25,6 +26,9 @@ class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixi
 
   /// [alignment] is for child alignment in box
   AppAlignment? alignment;
+
+  /// For change Container Blend Mode
+  BlendMode? blendMode;
 
   /// For change Container color
   void onColorChanged(Color? color) {
@@ -56,6 +60,12 @@ class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixi
   void onRadiusChanged(AppBorderRadius? radius) {
     resetRadiusValue();
     this.radius = radius;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change BlendMode
+  void onBlendModeChanged(BlendMode? blendMode) {
+    this.blendMode = blendMode;
     emit(ContainerPropertyUpdateState());
   }
 

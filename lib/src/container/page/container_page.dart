@@ -67,6 +67,20 @@ class ContainerPage extends StatelessWidget {
                   const ContainerMargin(),
                   const AppDivider(height: 8),
                   const ContainerRadius(),
+                  const AppDivider(height: 8),
+                  AppDropdown(
+                    items: BlendMode.values
+                        .map<DropdownMenuItem<BlendMode>>(
+                          (BlendMode value) => DropdownMenuItem(
+                            value: value,
+                            child: Text(value.name),
+                          ),
+                        )
+                        .toList(),
+                    onChanged: cubit.onBlendModeChanged,
+                    value: cubit.blendMode,
+                    labelText: 'Blend Mode',
+                  ),
                 ],
               ),
               MultiValueListenableBuilder(
@@ -96,6 +110,7 @@ class ContainerPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: cubit.color,
                       borderRadius: cubit.radiusValue,
+                      backgroundBlendMode: cubit.blendMode,
                     ),
                     child: const Text('Box'),
                   );

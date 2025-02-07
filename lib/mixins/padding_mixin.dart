@@ -30,14 +30,26 @@ mixin PaddingMixin {
   EdgeInsetsGeometry get paddingValue {
     switch (padding) {
       case AppPadding.symmetric:
-        return EdgeInsets.symmetric(vertical: paddingTop.value, horizontal: paddingLeft.value);
+        return EdgeInsets.symmetric(
+          vertical: paddingTop.value,
+          horizontal: paddingLeft.value,
+        );
       case AppPadding.all:
         return EdgeInsets.all(paddingTop.value);
       case AppPadding.only:
         return EdgeInsets.only(
-            top: paddingTop.value, right: paddingRight.value, left: paddingLeft.value, bottom: paddingBottom.value);
+          top: paddingTop.value,
+          right: paddingRight.value,
+          left: paddingLeft.value,
+          bottom: paddingBottom.value,
+        );
       case AppPadding.ltrb:
-        return EdgeInsets.fromLTRB(paddingLeft.value, paddingTop.value, paddingRight.value, paddingBottom.value);
+        return EdgeInsets.fromLTRB(
+          paddingLeft.value,
+          paddingTop.value,
+          paddingRight.value,
+          paddingBottom.value,
+        );
       case AppPadding.zero:
         return EdgeInsets.zero;
       case null:
