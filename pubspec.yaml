@@ -18,12 +18,12 @@ dependencies:
   logger: ^2.5.0
   multi_value_listenable_builder: ^0.0.2
   syncfusion_flutter_sliders: ^28.2.4
-  very_good_analysis: ^7.0.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
+  very_good_analysis: ^7.0.0
 
 flutter:
   uses-material-design: true
