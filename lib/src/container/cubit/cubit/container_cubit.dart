@@ -2,12 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/enum/app_alignment.dart';
 import 'package:flutter_basics/core/enum/app_padding.dart';
-import 'package:flutter_basics/properties/padding/padding_mixin.dart';
+import 'package:flutter_basics/properties/margin_mixin.dart';
+import 'package:flutter_basics/properties/padding_mixin.dart';
 
 part 'container_state.dart';
 
 /// Container Cubit is for handle Container property
-class ContainerCubit extends Cubit<ContainerState> with PaddingMixin {
+class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixin {
   /// Default constructor
   ContainerCubit() : super(ContainerInitial());
 
@@ -37,8 +38,22 @@ class ContainerCubit extends Cubit<ContainerState> with PaddingMixin {
 
   /// For change Alignment
   void onPaddingChanged(AppPadding? padding) {
-    resetPaddingValue();
+    resetMarginValue();
     this.padding = padding;
     emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Alignment
+  void onMarginChanged(AppPadding? margin) {
+    resetMarginValue();
+    this.margin = margin;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  @override
+  Future<void> close() {
+    paddingDispose();
+    marginDispose();
+    return super.close();
   }
 }

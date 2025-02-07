@@ -5,10 +5,10 @@ import 'package:flutter_basics/core/widgets/app_slider.dart';
 import 'package:flutter_basics/src/container/cubit/cubit/container_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// Container Padding View
-class ContainerPadding extends StatelessWidget {
+/// Container margin View
+class ContainerMargin extends StatelessWidget {
   /// Default constructor
-  const ContainerPadding({super.key});
+  const ContainerMargin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,49 +26,49 @@ class ContainerPadding extends StatelessWidget {
                     ),
                   )
                   .toList(),
-              onChanged: cubit.onPaddingChanged,
-              value: cubit.padding,
-              labelText: 'Padding',
+              onChanged: cubit.onMarginChanged,
+              value: cubit.margin,
+              labelText: 'Margin',
             ),
             const SizedBox(height: 8),
-            if (cubit.padding?.isAll ?? false) ...[
+            if (cubit.margin?.isAll ?? false) ...[
               AppSlider(
-                valueListenable: cubit.paddingTop,
-                onChanged: (value) => cubit.paddingTop.value = value,
+                valueListenable: cubit.marginTop,
+                onChanged: (value) => cubit.marginTop.value = value,
                 labelText: 'All',
               ),
             ],
-            if (cubit.padding?.isOnly ?? false) ...[
+            if (cubit.margin?.isOnly ?? false) ...[
               AppSlider(
-                valueListenable: cubit.paddingLeft,
-                onChanged: (value) => cubit.paddingLeft.value = value,
+                valueListenable: cubit.marginLeft,
+                onChanged: (value) => cubit.marginLeft.value = value,
                 labelText: 'Left',
               ),
               AppSlider(
-                valueListenable: cubit.paddingRight,
-                onChanged: (value) => cubit.paddingRight.value = value,
+                valueListenable: cubit.marginRight,
+                onChanged: (value) => cubit.marginRight.value = value,
                 labelText: 'Right',
               ),
               AppSlider(
-                valueListenable: cubit.paddingTop,
-                onChanged: (value) => cubit.paddingTop.value = value,
+                valueListenable: cubit.marginTop,
+                onChanged: (value) => cubit.marginTop.value = value,
                 labelText: 'Top',
               ),
               AppSlider(
-                valueListenable: cubit.paddingBottom,
-                onChanged: (value) => cubit.paddingBottom.value = value,
+                valueListenable: cubit.marginBottom,
+                onChanged: (value) => cubit.marginBottom.value = value,
                 labelText: 'Bottom',
               ),
             ],
-            if (cubit.padding?.isSymmetric ?? false) ...[
+            if (cubit.margin?.isSymmetric ?? false) ...[
               AppSlider(
-                valueListenable: cubit.paddingLeft,
-                onChanged: (value) => cubit.paddingLeft.value = value,
+                valueListenable: cubit.marginLeft,
+                onChanged: (value) => cubit.marginLeft.value = value,
                 labelText: 'Horizontal',
               ),
               AppSlider(
-                valueListenable: cubit.paddingTop,
-                onChanged: (value) => cubit.paddingTop.value = value,
+                valueListenable: cubit.marginTop,
+                onChanged: (value) => cubit.marginTop.value = value,
                 labelText: 'Vertical',
               ),
             ],

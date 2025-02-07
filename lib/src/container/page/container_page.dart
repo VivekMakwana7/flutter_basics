@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/enum/app_alignment.dart';
-import 'package:flutter_basics/core/enum/app_padding.dart';
 import 'package:flutter_basics/core/widgets/app_color_picker_dialog.dart';
 import 'package:flutter_basics/core/widgets/app_divider.dart';
 import 'package:flutter_basics/core/widgets/app_dropdown.dart';
 import 'package:flutter_basics/core/widgets/app_slider.dart';
 import 'package:flutter_basics/src/container/cubit/cubit/container_cubit.dart';
+import 'package:flutter_basics/src/container/widgets/container_margin.dart';
 import 'package:flutter_basics/src/container/widgets/container_padding.dart';
 import 'package:flutter_basics/src/main/property_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,16 +62,22 @@ class ContainerPage extends StatelessWidget {
                   ),
                   const AppDivider(height: 8),
                   const ContainerPadding(),
+                  const AppDivider(height: 8),
+                  const ContainerMargin(),
                 ],
               ),
               MultiValueListenableBuilder(
                 valueListenables: [
                   cubit.height,
                   cubit.width,
-                  cubit.top,
-                  cubit.bottom,
-                  cubit.left,
-                  cubit.right,
+                  cubit.paddingTop,
+                  cubit.paddingBottom,
+                  cubit.paddingLeft,
+                  cubit.paddingRight,
+                  cubit.marginTop,
+                  cubit.marginBottom,
+                  cubit.marginLeft,
+                  cubit.marginRight,
                 ],
                 builder: (context, _, __) {
                   return Container(
@@ -79,6 +85,7 @@ class ContainerPage extends StatelessWidget {
                     width: cubit.width.value,
                     alignment: cubit.alignment?.alignment,
                     padding: cubit.paddingValue,
+                    margin: cubit.marginValue,
                     decoration: BoxDecoration(color: cubit.color),
                     child: const Text('Box'),
                   );
