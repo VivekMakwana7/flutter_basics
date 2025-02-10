@@ -18,10 +18,17 @@ enum AppColorFilter {
   none,
 }
 
-// extension on AppColorFilter
+/// Extension on [AppColorFilter] enum to provide convenient boolean checks for each color filter option.
 extension ExtAppColorFilter on AppColorFilter {
+  /// [isMode]: Returns `true` if the current color filter is [AppColorFilter.mode], otherwise `false`.
   bool get isMode => this == AppColorFilter.mode;
+
+  ///  [isMatrix]: Returns `true` if the current color filter is [AppColorFilter.matrix], otherwise `false`.
   bool get isMatrix => this == AppColorFilter.matrix;
+
+  /// [isLinearToSrgbGamma]: Returns `true` if the current color filter is [AppColorFilter.linearToSrgbGamma], otherwise `false`.
   bool get isLinearToSrgbGamma => this == AppColorFilter.linearToSrgbGamma;
+
+  ///  [isSrgbToLinearGamma]: Returns `true` if the current color filter is [AppColorFilter.srgbToLinearGamma], otherwise `false`.
   bool get isSrgbToLinearGamma => this == AppColorFilter.srgbToLinearGamma;
 }
