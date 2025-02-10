@@ -27,6 +27,7 @@ class ContainerPropertyWidget extends StatelessWidget {
         final cubit = context.read<ContainerCubit>();
         return PropertyView(
           children: [
+            const SizedBox(height: 24),
             AppSlider(
               key: const ValueKey('container-height'),
               labelText: 'Height',
