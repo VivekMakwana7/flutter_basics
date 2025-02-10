@@ -1,9 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/enum/app_alignment.dart';
+import 'package:flutter_basics/core/enum/app_border.dart';
 import 'package:flutter_basics/core/enum/app_border_radius.dart';
 import 'package:flutter_basics/core/enum/app_gradient.dart';
 import 'package:flutter_basics/core/enum/app_padding.dart';
+import 'package:flutter_basics/mixins/border_mixin.dart';
 import 'package:flutter_basics/mixins/border_radius_mixin.dart';
 import 'package:flutter_basics/mixins/gradient_mixin.dart';
 import 'package:flutter_basics/mixins/margin_mixin.dart';
@@ -12,7 +14,8 @@ import 'package:flutter_basics/mixins/padding_mixin.dart';
 part 'container_state.dart';
 
 /// Container Cubit is for handle Container property
-class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixin, BorderRadiusMixin, GradientMixin {
+class ContainerCubit extends Cubit<ContainerState>
+    with PaddingMixin, MarginMixin, BorderRadiusMixin, GradientMixin, BorderMixin {
   /// Default constructor
   ContainerCubit() : super(ContainerInitial());
 
@@ -142,6 +145,60 @@ class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixi
     emit(ContainerPropertyUpdateState());
   }
 
+  /// For change Border
+  void onBorderChanged(AppBorder? border) {
+    appBorder = border ?? AppBorder.none;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Top Border Color
+  void onTopBorderColorChanged(Color? color) {
+    topBorderColor = color ?? Colors.white;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Bottom Border Color
+  void onBottomBorderColorChanged(Color? color) {
+    bottomBorderColor = color ?? Colors.white;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Left Border Color
+  void onLeftBorderColorChanged(Color? color) {
+    leftBorderColor = color ?? Colors.white;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Right Border Color
+  void onRightBorderColorChanged(Color? color) {
+    rightBorderColor = color ?? Colors.white;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Top Border Width
+  void onTopBorderStyleChanged(BorderStyle? borderStyle) {
+    topBorderStyle = borderStyle ?? BorderStyle.none;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Bottom Border Width
+  void onBottomBorderStyleChanged(BorderStyle? borderStyle) {
+    bottomBorderStyle = borderStyle ?? BorderStyle.none;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Left Border Width
+  void onLeftBorderStyleChanged(BorderStyle? borderStyle) {
+    leftBorderStyle = borderStyle ?? BorderStyle.none;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Right Border Width
+  void onRightBorderStyleChanged(BorderStyle? borderStyle) {
+    rightBorderStyle = borderStyle ?? BorderStyle.none;
+    emit(ContainerPropertyUpdateState());
+  }
+
   @override
   Future<void> close() {
     height.dispose();
@@ -150,6 +207,7 @@ class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixi
     marginDispose();
     borderRadiusDisposer();
     gradientMixinDispose();
+    borderMixinDispose();
     return super.close();
   }
 }

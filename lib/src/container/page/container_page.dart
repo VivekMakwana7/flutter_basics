@@ -5,6 +5,7 @@ import 'package:flutter_basics/core/widgets/app_divider.dart';
 import 'package:flutter_basics/core/widgets/app_dropdown.dart';
 import 'package:flutter_basics/core/widgets/app_slider.dart';
 import 'package:flutter_basics/src/container/cubit/cubit/container_cubit.dart';
+import 'package:flutter_basics/src/container/widgets/container_border.dart';
 import 'package:flutter_basics/src/container/widgets/container_gradient.dart';
 import 'package:flutter_basics/src/container/widgets/container_margin.dart';
 import 'package:flutter_basics/src/container/widgets/container_padding.dart';
@@ -69,6 +70,8 @@ class ContainerPage extends StatelessWidget {
                   const AppDivider(height: 8),
                   const ContainerRadius(),
                   const AppDivider(height: 8),
+                  const ContainerBorder(),
+                  const AppDivider(height: 8),
                   AppDropdown(
                     items: BlendMode.values
                         .map<DropdownMenuItem<BlendMode>>(
@@ -122,6 +125,15 @@ class ContainerPage extends StatelessWidget {
                   cubit.startAngle,
                   cubit.endAngle,
                   cubit.gradientRadians,
+                  cubit.borderStrokeAlign,
+                  cubit.topBorderWidth,
+                  cubit.topBorderStrokeAlign,
+                  cubit.bottomBorderWidth,
+                  cubit.bottomBorderStrokeAlign,
+                  cubit.leftBorderWidth,
+                  cubit.leftBorderStrokeAlign,
+                  cubit.rightBorderWidth,
+                  cubit.rightBorderStrokeAlign,
                 ],
                 builder: (context, _, __) {
                   return Container(
@@ -136,6 +148,7 @@ class ContainerPage extends StatelessWidget {
                       backgroundBlendMode: cubit.blendMode,
                       shape: cubit.boxShape,
                       gradient: cubit.gradientValue,
+                      border: cubit.borderValue,
                     ),
                     child: const Text('Box'),
                   );
