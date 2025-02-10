@@ -8,6 +8,7 @@ import 'package:flutter_basics/src/container/cubit/cubit/container_cubit.dart';
 import 'package:flutter_basics/src/container/widgets/container_border.dart';
 import 'package:flutter_basics/src/container/widgets/container_box_shadow.dart';
 import 'package:flutter_basics/src/container/widgets/container_gradient.dart';
+import 'package:flutter_basics/src/container/widgets/container_image.dart';
 import 'package:flutter_basics/src/container/widgets/container_margin.dart';
 import 'package:flutter_basics/src/container/widgets/container_padding.dart';
 import 'package:flutter_basics/src/container/widgets/container_radius.dart';
@@ -28,6 +29,7 @@ class ContainerPage extends StatelessWidget {
         builder: (context, state) {
           final cubit = context.read<ContainerCubit>();
           return Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               PropertyWidget(
                 children: [
@@ -104,63 +106,87 @@ class ContainerPage extends StatelessWidget {
                   ),
                   const AppDivider(height: 8),
                   const ContainerGradient(),
+                  const AppDivider(height: 8),
+                  const ContainerImage(),
+                  const SizedBox(height: 12),
                 ],
               ),
-              MultiValueListenableBuilder(
-                valueListenables: [
-                  cubit.height,
-                  cubit.width,
-                  cubit.paddingTop,
-                  cubit.paddingBottom,
-                  cubit.paddingLeft,
-                  cubit.paddingRight,
-                  cubit.marginTop,
-                  cubit.marginBottom,
-                  cubit.marginLeft,
-                  cubit.marginRight,
-                  cubit.radiusTop,
-                  cubit.radiusBottom,
-                  cubit.radiusLeft,
-                  cubit.radiusRight,
-                  cubit.gradientColors,
-                  cubit.gradientRadius,
-                  cubit.focalRadius,
-                  cubit.startAngle,
-                  cubit.endAngle,
-                  cubit.gradientRadians,
-                  cubit.borderStrokeAlign,
-                  cubit.topBorderWidth,
-                  cubit.topBorderStrokeAlign,
-                  cubit.bottomBorderWidth,
-                  cubit.bottomBorderStrokeAlign,
-                  cubit.leftBorderWidth,
-                  cubit.leftBorderStrokeAlign,
-                  cubit.rightBorderWidth,
-                  cubit.rightBorderStrokeAlign,
-                  ...cubit.boxShadows.map((e) => e.dx),
-                  ...cubit.boxShadows.map((e) => e.dy),
-                  ...cubit.boxShadows.map((e) => e.spreadRadius),
-                  ...cubit.boxShadows.map((e) => e.blurRadius),
-                ],
-                builder: (context, _, __) {
-                  return Container(
-                    height: cubit.height.value,
-                    width: cubit.width.value,
-                    alignment: cubit.alignment?.alignment,
-                    padding: cubit.paddingValue,
-                    margin: cubit.marginValue,
-                    decoration: BoxDecoration(
-                      color: cubit.color,
-                      borderRadius: cubit.radiusValue,
-                      backgroundBlendMode: cubit.blendMode,
-                      shape: cubit.boxShape,
-                      gradient: cubit.gradientValue,
-                      border: cubit.borderValue,
-                      boxShadow: cubit.boxShadowValue,
-                    ),
-                    child: const Text('Box'),
-                  );
-                },
+              Expanded(
+                child: Center(
+                  child: MultiValueListenableBuilder(
+                    valueListenables: [
+                      cubit.height,
+                      cubit.width,
+                      cubit.paddingTop,
+                      cubit.paddingBottom,
+                      cubit.paddingLeft,
+                      cubit.paddingRight,
+                      cubit.marginTop,
+                      cubit.marginBottom,
+                      cubit.marginLeft,
+                      cubit.marginRight,
+                      cubit.radiusTop,
+                      cubit.radiusBottom,
+                      cubit.radiusLeft,
+                      cubit.radiusRight,
+                      cubit.gradientColors,
+                      cubit.gradientRadius,
+                      cubit.focalRadius,
+                      cubit.startAngle,
+                      cubit.endAngle,
+                      cubit.gradientRadians,
+                      cubit.borderStrokeAlign,
+                      cubit.topBorderWidth,
+                      cubit.topBorderStrokeAlign,
+                      cubit.bottomBorderWidth,
+                      cubit.bottomBorderStrokeAlign,
+                      cubit.leftBorderWidth,
+                      cubit.leftBorderStrokeAlign,
+                      cubit.rightBorderWidth,
+                      cubit.rightBorderStrokeAlign,
+                      ...cubit.boxShadows.map((e) => e.dx),
+                      ...cubit.boxShadows.map((e) => e.dy),
+                      ...cubit.boxShadows.map((e) => e.spreadRadius),
+                      ...cubit.boxShadows.map((e) => e.blurRadius),
+                      cubit.scale,
+                      cubit.opacity,
+                    ],
+                    builder: (context, _, __) {
+                      return Container(
+                        height: cubit.height.value,
+                        width: cubit.width.value,
+                        alignment: cubit.alignment?.alignment,
+                        padding: cubit.paddingValue,
+                        margin: cubit.marginValue,
+                        decoration: BoxDecoration(
+                          color: cubit.color,
+                          borderRadius: cubit.radiusValue,
+                          backgroundBlendMode: cubit.blendMode,
+                          shape: cubit.boxShape,
+                          gradient: cubit.gradientValue,
+                          border: cubit.borderValue,
+                          boxShadow: cubit.boxShadowValue,
+                          image: cubit.isImagePreview
+                              ? DecorationImage(
+                                  image: const AssetImage('assets/images/image.jpeg'),
+                                  fit: cubit.imageFit,
+                                  alignment: cubit.imageAlignment.alignment,
+                                  matchTextDirection: cubit.matchTextDirection,
+                                  repeat: cubit.repeat,
+                                  filterQuality: cubit.filterQuality,
+                                  invertColors: cubit.invertColors,
+                                  isAntiAlias: cubit.isAntiAlias,
+                                  scale: cubit.scale.value,
+                                  opacity: cubit.opacity.value,
+                                  colorFilter: cubit.colorFilter,
+                                )
+                              : null,
+                        ),
+                        child: const Text('Box'),
+                      );
+                    },
+                  ),
+                ),
               ),
             ],
           );

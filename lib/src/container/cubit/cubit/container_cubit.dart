@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/enum/app_alignment.dart';
 import 'package:flutter_basics/core/enum/app_border.dart';
 import 'package:flutter_basics/core/enum/app_border_radius.dart';
+import 'package:flutter_basics/core/enum/app_color_filter.dart';
 import 'package:flutter_basics/core/enum/app_gradient.dart';
 import 'package:flutter_basics/core/enum/app_padding.dart';
 import 'package:flutter_basics/mixins/border_mixin.dart';
 import 'package:flutter_basics/mixins/border_radius_mixin.dart';
 import 'package:flutter_basics/mixins/box_shadow_mixin.dart';
+import 'package:flutter_basics/mixins/decoration_image_mixin.dart';
 import 'package:flutter_basics/mixins/gradient_mixin.dart';
 import 'package:flutter_basics/mixins/margin_mixin.dart';
 import 'package:flutter_basics/mixins/padding_mixin.dart';
@@ -16,7 +18,14 @@ part 'container_state.dart';
 
 /// Container Cubit is for handle Container property
 class ContainerCubit extends Cubit<ContainerState>
-    with PaddingMixin, MarginMixin, BorderRadiusMixin, GradientMixin, BorderMixin, BoxShadowMixin {
+    with
+        PaddingMixin,
+        MarginMixin,
+        BorderRadiusMixin,
+        GradientMixin,
+        BorderMixin,
+        BoxShadowMixin,
+        DecorationImageMixin {
   /// Default constructor
   ContainerCubit() : super(ContainerInitial());
 
@@ -222,6 +231,64 @@ class ContainerCubit extends Cubit<ContainerState>
         blurRadius: ValueNotifier(0),
       ),
     );
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Container decoration Image
+  void onImagePreviewEnable({bool? value}) {
+    isImagePreview = value ?? false;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Container decoration Box Fit
+  void onImageFitChanged(BoxFit? imageFit) {
+    this.imageFit = imageFit;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  void onImageAlignmentChanged(AppAlignment? alignment) {
+    imageAlignment = alignment ?? AppAlignment.center;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  void onMatchTextDirectionChanged({bool? value}) {
+    matchTextDirection = value ?? false;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  void onImageRepeatChanged(ImageRepeat? repeat) {
+    this.repeat = repeat ?? ImageRepeat.noRepeat;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  void onImageFilterChanged(FilterQuality? filterQuality) {
+    this.filterQuality = filterQuality ?? FilterQuality.medium;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  void onInvertColorChanged({bool? value}) {
+    invertColors = value ?? false;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  void onAntiAliasChanged({bool? value}) {
+    isAntiAlias = value ?? false;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  void onImageColorFilterChanged(AppColorFilter? imageColorFilter) {
+    this.imageColorFilter = imageColorFilter;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Container color
+  void onImageFilterColorChanged(Color? color) {
+    filterColor = color ?? Colors.white;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  void onImageBlendModeChanged(BlendMode? imageBlendMode) {
+    this.imageBlendMode = imageBlendMode ?? BlendMode.src;
     emit(ContainerPropertyUpdateState());
   }
 

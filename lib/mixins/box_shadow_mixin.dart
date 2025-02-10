@@ -3,14 +3,7 @@ import 'package:flutter/material.dart';
 /// A mixin that provides a list of [BoxShadow] objects based on the [AppBoxShadow] objects.
 mixin BoxShadowMixin {
   /// Application Box Shadows
-  List<AppBoxShadow> boxShadows = [
-    AppBoxShadow(
-      dx: ValueNotifier(0),
-      dy: ValueNotifier(0),
-      spreadRadius: ValueNotifier(0),
-      blurRadius: ValueNotifier(0),
-    ),
-  ];
+  List<AppBoxShadow> boxShadows = [];
 
   /// Returns a list of [BoxShadow] objects based on the [AppBoxShadow] objects in [boxShadows].
   ///
