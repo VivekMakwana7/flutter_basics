@@ -29,6 +29,7 @@ class RowPropertyWidget extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 ElevatedButton(
+                  key: const ValueKey('row-increase-box'),
                   onPressed: cubit.increaseBox,
                   child: const Text('Add 1'),
                 ),
@@ -36,6 +37,7 @@ class RowPropertyWidget extends StatelessWidget {
             ),
             const AppDivider(height: 8),
             AppDropdown(
+              key: const ValueKey('row-main-axis-size'),
               items: MainAxisSize.values
                   .map<DropdownMenuItem<MainAxisSize>>(
                     (MainAxisSize value) => DropdownMenuItem(
@@ -50,6 +52,7 @@ class RowPropertyWidget extends StatelessWidget {
             ),
             const AppDivider(height: 8),
             AppDropdown(
+              key: const ValueKey('row-main-axis-alignment'),
               items: MainAxisAlignment.values
                   .map<DropdownMenuItem<MainAxisAlignment>>(
                     (MainAxisAlignment value) => DropdownMenuItem(
@@ -64,6 +67,7 @@ class RowPropertyWidget extends StatelessWidget {
             ),
             const AppDivider(height: 8),
             AppDropdown(
+              key: const ValueKey('row-cross-axis-alignment'),
               items: CrossAxisAlignment.values
                   .map<DropdownMenuItem<CrossAxisAlignment>>(
                     (CrossAxisAlignment value) => DropdownMenuItem(
@@ -78,6 +82,7 @@ class RowPropertyWidget extends StatelessWidget {
             ),
             const AppDivider(height: 8),
             AppDropdown(
+              key: const ValueKey('row-text-baseline'),
               items: TextBaseline.values
                   .map<DropdownMenuItem<TextBaseline>>(
                     (TextBaseline value) => DropdownMenuItem(
@@ -92,6 +97,7 @@ class RowPropertyWidget extends StatelessWidget {
             ),
             const AppDivider(height: 8),
             AppDropdown(
+              key: const ValueKey('row-text-direction'),
               items: TextDirection.values
                   .map<DropdownMenuItem<TextDirection>>(
                     (TextDirection value) => DropdownMenuItem(
@@ -106,6 +112,7 @@ class RowPropertyWidget extends StatelessWidget {
             ),
             const AppDivider(height: 8),
             AppDropdown(
+              key: const ValueKey('row-vertical-direction'),
               items: VerticalDirection.values
                   .map<DropdownMenuItem<VerticalDirection>>(
                     (VerticalDirection value) => DropdownMenuItem(
