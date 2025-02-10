@@ -68,7 +68,7 @@ class WrapPropertyWidget extends StatelessWidget {
             ),
             const AppDivider(height: 8),
             AppDropdown(
-              key: const ValueKey('wrap-run-alignment'),
+              key: const ValueKey('wrap-alignment'),
               items: WrapAlignment.values
                   .map<DropdownMenuItem<WrapAlignment>>(
                     (e) => DropdownMenuItem(
