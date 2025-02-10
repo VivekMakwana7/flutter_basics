@@ -31,8 +31,8 @@ class ContainerBorder extends StatelessWidget {
               value: cubit.appBorder,
               labelText: 'Border',
             ),
-            const AppDivider(height: 8),
             if (cubit.appBorder.isSebt) ...[
+              const AppDivider(height: 8),
               ContainerBorderSide(
                 title: 'Top Border Side',
                 borderColor: cubit.topBorderColor,
@@ -86,6 +86,7 @@ class ContainerBorder extends StatelessWidget {
               ),
             ],
             if (cubit.appBorder.isSymmetric) ...[
+              const AppDivider(height: 8),
               ContainerBorderSide(
                 title: 'Vertical Border Side',
                 borderColor: cubit.topBorderColor,
@@ -113,6 +114,7 @@ class ContainerBorder extends StatelessWidget {
               ),
             ],
             if (cubit.appBorder.isAll || cubit.appBorder.isFromSide) ...[
+              const AppDivider(height: 8),
               ContainerBorderSide(
                 title: 'All Border Side',
                 borderColor: cubit.topBorderColor,

@@ -7,6 +7,7 @@ import 'package:flutter_basics/core/enum/app_gradient.dart';
 import 'package:flutter_basics/core/enum/app_padding.dart';
 import 'package:flutter_basics/mixins/border_mixin.dart';
 import 'package:flutter_basics/mixins/border_radius_mixin.dart';
+import 'package:flutter_basics/mixins/box_shadow_mixin.dart';
 import 'package:flutter_basics/mixins/gradient_mixin.dart';
 import 'package:flutter_basics/mixins/margin_mixin.dart';
 import 'package:flutter_basics/mixins/padding_mixin.dart';
@@ -15,7 +16,7 @@ part 'container_state.dart';
 
 /// Container Cubit is for handle Container property
 class ContainerCubit extends Cubit<ContainerState>
-    with PaddingMixin, MarginMixin, BorderRadiusMixin, GradientMixin, BorderMixin {
+    with PaddingMixin, MarginMixin, BorderRadiusMixin, GradientMixin, BorderMixin, BoxShadowMixin {
   /// Default constructor
   ContainerCubit() : super(ContainerInitial());
 
@@ -199,6 +200,31 @@ class ContainerCubit extends Cubit<ContainerState>
     emit(ContainerPropertyUpdateState());
   }
 
+  /// For change Container color
+  void onBoxShadowColor({required int index, Color? color}) {
+    boxShadows[index].copyWith(color: color);
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Container blurRadius
+  void onBoxShadowBlurStyleChanged({required int index, BlurStyle? blurStyle}) {
+    boxShadows[index].copyWith(blurStyle: blurStyle);
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Container Box shadow
+  void increaseBoxShadow() {
+    boxShadows.add(
+      AppBoxShadow(
+        dx: ValueNotifier(0),
+        dy: ValueNotifier(0),
+        spreadRadius: ValueNotifier(0),
+        blurRadius: ValueNotifier(0),
+      ),
+    );
+    emit(ContainerPropertyUpdateState());
+  }
+
   @override
   Future<void> close() {
     height.dispose();
@@ -208,6 +234,7 @@ class ContainerCubit extends Cubit<ContainerState>
     borderRadiusDisposer();
     gradientMixinDispose();
     borderMixinDispose();
+    boxShadowMixinDispose();
     return super.close();
   }
 }

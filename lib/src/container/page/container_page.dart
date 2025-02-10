@@ -6,6 +6,7 @@ import 'package:flutter_basics/core/widgets/app_dropdown.dart';
 import 'package:flutter_basics/core/widgets/app_slider.dart';
 import 'package:flutter_basics/src/container/cubit/cubit/container_cubit.dart';
 import 'package:flutter_basics/src/container/widgets/container_border.dart';
+import 'package:flutter_basics/src/container/widgets/container_box_shadow.dart';
 import 'package:flutter_basics/src/container/widgets/container_gradient.dart';
 import 'package:flutter_basics/src/container/widgets/container_margin.dart';
 import 'package:flutter_basics/src/container/widgets/container_padding.dart';
@@ -72,6 +73,8 @@ class ContainerPage extends StatelessWidget {
                   const AppDivider(height: 8),
                   const ContainerBorder(),
                   const AppDivider(height: 8),
+                  const ContainerBoxShadow(),
+                  const AppDivider(height: 8),
                   AppDropdown(
                     items: BlendMode.values
                         .map<DropdownMenuItem<BlendMode>>(
@@ -134,6 +137,10 @@ class ContainerPage extends StatelessWidget {
                   cubit.leftBorderStrokeAlign,
                   cubit.rightBorderWidth,
                   cubit.rightBorderStrokeAlign,
+                  ...cubit.boxShadows.map((e) => e.dx),
+                  ...cubit.boxShadows.map((e) => e.dy),
+                  ...cubit.boxShadows.map((e) => e.spreadRadius),
+                  ...cubit.boxShadows.map((e) => e.blurRadius),
                 ],
                 builder: (context, _, __) {
                   return Container(
@@ -149,6 +156,7 @@ class ContainerPage extends StatelessWidget {
                       shape: cubit.boxShape,
                       gradient: cubit.gradientValue,
                       border: cubit.borderValue,
+                      boxShadow: cubit.boxShadowValue,
                     ),
                     child: const Text('Box'),
                   );
