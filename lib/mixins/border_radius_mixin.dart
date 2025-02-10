@@ -27,7 +27,7 @@ mixin BorderRadiusMixin {
   }
 
   /// Returns a [BorderRadiusGeometry] based on the [radius] and the values of [radiusTop], [radiusBottom], [radiusLeft], and [radiusRight].
-  BorderRadiusGeometry get radiusValue {
+  BorderRadiusGeometry? get radiusValue {
     switch (radius) {
       case AppBorderRadius.zero:
         return BorderRadius.zero;
@@ -53,7 +53,7 @@ mixin BorderRadiusMixin {
           right: Radius.circular(radiusRight.value),
         );
       case null:
-        return BorderRadius.zero;
+        return null;
     }
   }
 

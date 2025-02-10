@@ -10,8 +10,7 @@ import 'package:flutter_basics/mixins/padding_mixin.dart';
 part 'container_state.dart';
 
 /// Container Cubit is for handle Container property
-class ContainerCubit extends Cubit<ContainerState>
-    with PaddingMixin, MarginMixin, BorderRadiusMixin {
+class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixin, BorderRadiusMixin {
   /// Default constructor
   ContainerCubit() : super(ContainerInitial());
 
@@ -29,6 +28,9 @@ class ContainerCubit extends Cubit<ContainerState>
 
   /// For change Container Blend Mode
   BlendMode? blendMode;
+
+  /// For change Container Shapes
+  BoxShape boxShape = BoxShape.rectangle;
 
   /// For change Container color
   void onColorChanged(Color? color) {
@@ -66,6 +68,16 @@ class ContainerCubit extends Cubit<ContainerState>
   /// For change BlendMode
   void onBlendModeChanged(BlendMode? blendMode) {
     this.blendMode = blendMode;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change BoxShape
+  void onBoxShapeChanged(BoxShape? boxShape) {
+    // ASSERT : Border Radius and BoxShape can not be applied at same time
+    resetRadiusValue();
+    radius = null;
+
+    this.boxShape = boxShape ?? BoxShape.rectangle;
     emit(ContainerPropertyUpdateState());
   }
 

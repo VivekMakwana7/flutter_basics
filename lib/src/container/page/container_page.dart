@@ -81,6 +81,20 @@ class ContainerPage extends StatelessWidget {
                     value: cubit.blendMode,
                     labelText: 'Blend Mode',
                   ),
+                  const AppDivider(height: 8),
+                  AppDropdown(
+                    items: BoxShape.values
+                        .map<DropdownMenuItem<BoxShape>>(
+                          (BoxShape value) => DropdownMenuItem(
+                            value: value,
+                            child: Text(value.name),
+                          ),
+                        )
+                        .toList(),
+                    onChanged: cubit.onBoxShapeChanged,
+                    value: cubit.boxShape,
+                    labelText: 'Box Shape',
+                  ),
                 ],
               ),
               MultiValueListenableBuilder(
@@ -111,6 +125,7 @@ class ContainerPage extends StatelessWidget {
                       color: cubit.color,
                       borderRadius: cubit.radiusValue,
                       backgroundBlendMode: cubit.blendMode,
+                      shape: cubit.boxShape,
                     ),
                     child: const Text('Box'),
                   );

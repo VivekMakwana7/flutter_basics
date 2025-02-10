@@ -29,7 +29,7 @@ final appRouter = GoRouter(
 
     return null;
   },
-  initialLocation: AppRoutes.instance.textPage.path,
+  initialLocation: AppRoutes.instance.home,
   routes: [
     ShellRoute(
       builder: (context, state, child) => SideBarWidget(child: child),
