@@ -29,46 +29,46 @@ final appRouter = GoRouter(
 
     return null;
   },
-  initialLocation: AppRoutes.instance.home,
+  initialLocation: AppRoutes.home,
   routes: [
     ShellRoute(
       builder: (context, state, child) => SideBarWidget(child: child),
       routes: [
         GoRoute(
-          path: AppRoutes.instance.homePage,
-          name: AppRoutes.instance.homePage,
+          path: AppRoutes.homePage,
+          name: AppRoutes.homePage,
           builder: (context, state) => const HomePage(),
         ),
         GoRoute(
-          path: AppRoutes.instance.textPage.path,
-          name: AppRoutes.instance.textPage,
+          path: AppRoutes.textPage.path,
+          name: AppRoutes.textPage,
           builder: (context, state) => const TextPage(),
         ),
         GoRoute(
-          path: AppRoutes.instance.rowPage.path,
-          name: AppRoutes.instance.rowPage,
+          path: AppRoutes.rowPage.path,
+          name: AppRoutes.rowPage,
           builder: (context, state) => const RowPage(),
         ),
         GoRoute(
-          path: AppRoutes.instance.columnPage.path,
-          name: AppRoutes.instance.columnPage,
+          path: AppRoutes.columnPage.path,
+          name: AppRoutes.columnPage,
           builder: (context, state) => const ColumnPage(),
         ),
         GoRoute(
-          path: AppRoutes.instance.wrapPage.path,
-          name: AppRoutes.instance.wrapPage,
+          path: AppRoutes.wrapPage.path,
+          name: AppRoutes.wrapPage,
           builder: (context, state) => const WrapPage(),
         ),
         GoRoute(
-          path: AppRoutes.instance.containerPage.path,
-          name: AppRoutes.instance.containerPage,
+          path: AppRoutes.containerPage.path,
+          name: AppRoutes.containerPage,
           builder: (context, state) => const ContainerPage(),
         ),
       ],
     ),
     GoRoute(
-      path: AppRoutes.instance.testPage.path,
-      name: AppRoutes.instance.testPage,
+      path: AppRoutes.testPage.path,
+      name: AppRoutes.testPage,
       builder: (context, state) => const TestPage(),
     ),
   ],

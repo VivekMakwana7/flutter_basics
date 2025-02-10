@@ -40,15 +40,15 @@ extension ExtSideBarPage on SideBarPage {
   String get path {
     switch (this) {
       case SideBarPage.text:
-        return AppRoutes.instance.textPage;
+        return AppRoutes.textPage;
       case SideBarPage.row:
-        return AppRoutes.instance.rowPage;
+        return AppRoutes.rowPage;
       case SideBarPage.column:
-        return AppRoutes.instance.columnPage;
+        return AppRoutes.columnPage;
       case SideBarPage.wrap:
-        return AppRoutes.instance.wrapPage;
+        return AppRoutes.wrapPage;
       case SideBarPage.container:
-        return AppRoutes.instance.containerPage;
+        return AppRoutes.containerPage;
     }
   }
 }
