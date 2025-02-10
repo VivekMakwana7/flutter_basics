@@ -5,6 +5,7 @@ import 'package:flutter_basics/core/widgets/app_divider.dart';
 import 'package:flutter_basics/core/widgets/app_dropdown.dart';
 import 'package:flutter_basics/core/widgets/app_slider.dart';
 import 'package:flutter_basics/src/container/cubit/cubit/container_cubit.dart';
+import 'package:flutter_basics/src/container/widgets/container_gradient.dart';
 import 'package:flutter_basics/src/container/widgets/container_margin.dart';
 import 'package:flutter_basics/src/container/widgets/container_padding.dart';
 import 'package:flutter_basics/src/container/widgets/container_radius.dart';
@@ -95,6 +96,8 @@ class ContainerPage extends StatelessWidget {
                     value: cubit.boxShape,
                     labelText: 'Box Shape',
                   ),
+                  const AppDivider(height: 8),
+                  const ContainerGradient(),
                 ],
               ),
               MultiValueListenableBuilder(
@@ -113,6 +116,12 @@ class ContainerPage extends StatelessWidget {
                   cubit.radiusBottom,
                   cubit.radiusLeft,
                   cubit.radiusRight,
+                  cubit.gradientColors,
+                  cubit.gradientRadius,
+                  cubit.focalRadius,
+                  cubit.startAngle,
+                  cubit.endAngle,
+                  cubit.gradientRadians,
                 ],
                 builder: (context, _, __) {
                   return Container(
@@ -126,6 +135,7 @@ class ContainerPage extends StatelessWidget {
                       borderRadius: cubit.radiusValue,
                       backgroundBlendMode: cubit.blendMode,
                       shape: cubit.boxShape,
+                      gradient: cubit.gradientValue,
                     ),
                     child: const Text('Box'),
                   );

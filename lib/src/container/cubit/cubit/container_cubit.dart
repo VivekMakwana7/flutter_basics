@@ -2,15 +2,17 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/enum/app_alignment.dart';
 import 'package:flutter_basics/core/enum/app_border_radius.dart';
+import 'package:flutter_basics/core/enum/app_gradient.dart';
 import 'package:flutter_basics/core/enum/app_padding.dart';
 import 'package:flutter_basics/mixins/border_radius_mixin.dart';
+import 'package:flutter_basics/mixins/gradient_mixin.dart';
 import 'package:flutter_basics/mixins/margin_mixin.dart';
 import 'package:flutter_basics/mixins/padding_mixin.dart';
 
 part 'container_state.dart';
 
 /// Container Cubit is for handle Container property
-class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixin, BorderRadiusMixin {
+class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixin, BorderRadiusMixin, GradientMixin {
   /// Default constructor
   ContainerCubit() : super(ContainerInitial());
 
@@ -81,6 +83,65 @@ class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixi
     emit(ContainerPropertyUpdateState());
   }
 
+  /// For change Gradient
+  void onGradientChanged(AppGradient? gradient) {
+    this.gradient = gradient;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Gradient begin Alignment
+  void onGradientBeginAlignmentChanged(AppAlignment? alignment) {
+    gradientBegin = alignment ?? AppAlignment.topLeft;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Gradient end Alignment
+  void onGradientEndAlignmentChanged(AppAlignment? alignment) {
+    gradientEnd = alignment ?? AppAlignment.bottomRight;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Gradient tileMode
+  void onGradientTileModeChanged(TileMode? tileMode) {
+    this.tileMode = tileMode ?? TileMode.clamp;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For Update Gradient Colors
+  void increaseGradientColorBox() {
+    isStopsChanged = false;
+    gradientColors.value = gradientColors.value + [Colors.white];
+    stopController.clear();
+  }
+
+  /// On Text Style Font background color changed
+  void onGradientColorUpdate({required int index, Color? color}) {
+    final list = gradientColors.value.toList();
+    list[index] = color ?? Colors.white;
+    gradientColors.value = list;
+    gradientRadius.value = 0.5;
+    focalRadius.value = 0;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  ///
+  void onUpdateStop() {
+    if (!isStopsChanged) isStopsChanged = true;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Gradient Center Alignment
+  void onGradientCenterAlignmentChanged(AppAlignment? alignment) {
+    gradientCenter = alignment ?? AppAlignment.center;
+    emit(ContainerPropertyUpdateState());
+  }
+
+  /// For change Gradient Focal Alignment
+  void onGradientFocalAlignmentChanged(AppAlignment? alignment) {
+    focal = alignment;
+    emit(ContainerPropertyUpdateState());
+  }
+
   @override
   Future<void> close() {
     height.dispose();
@@ -88,6 +149,7 @@ class ContainerCubit extends Cubit<ContainerState> with PaddingMixin, MarginMixi
     paddingDispose();
     marginDispose();
     borderRadiusDisposer();
+    gradientMixinDispose();
     return super.close();
   }
 }
