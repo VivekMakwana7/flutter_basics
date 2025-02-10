@@ -16,7 +16,7 @@ import 'package:flutter_basics/src/main/property_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multi_value_listenable_builder/multi_value_listenable_builder.dart';
 
-/// [ContainerPage] is for demonstraints the container property
+/// [ContainerPage] is for demonstration the container property
 class ContainerPage extends StatelessWidget {
   /// Default constructor
   const ContainerPage({super.key});
@@ -31,7 +31,7 @@ class ContainerPage extends StatelessWidget {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              PropertyWidget(
+              PropertyView(
                 children: [
                   AppSlider(
                     labelText: 'Height',

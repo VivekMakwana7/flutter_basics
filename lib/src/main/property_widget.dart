@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics/core/ext/ext_build_context.dart';
 
 /// For All widgets fixed UI
-class PropertyWidget extends StatelessWidget {
+class PropertyView extends StatelessWidget {
   /// Default constructor
-  const PropertyWidget({required this.children, super.key});
+  const PropertyView({required this.children, super.key});
 
   /// For List of property widget passes
   final List<Widget> children;

@@ -21,7 +21,7 @@ class RowPage extends StatelessWidget {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              PropertyWidget(
+              PropertyView(
                 children: [
                   const SizedBox(height: 24),
                   Row(
@@ -129,8 +129,7 @@ class RowPage extends StatelessWidget {
               ),
               Expanded(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(
                     mainAxisSize: cubit.mainAxisSize,
                     mainAxisAlignment: cubit.mainAxisAlignment,

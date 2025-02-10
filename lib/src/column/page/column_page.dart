@@ -21,7 +21,7 @@ class ColumnPage extends StatelessWidget {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              PropertyWidget(
+              PropertyView(
                 children: [
                   const SizedBox(height: 24),
                   Row(
