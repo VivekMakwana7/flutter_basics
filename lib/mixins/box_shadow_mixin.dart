@@ -34,6 +34,8 @@ mixin BoxShadowMixin {
     boxShadows.map((e) {
       e.dx.dispose();
       e.dy.dispose();
+      e.spreadRadius.dispose();
+      e.blurRadius.dispose();
     });
   }
 }
