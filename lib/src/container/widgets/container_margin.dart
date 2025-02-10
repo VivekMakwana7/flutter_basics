@@ -18,6 +18,7 @@ class ContainerMargin extends StatelessWidget {
         return Column(
           children: [
             AppDropdown(
+              key: const ValueKey('container-margin'),
               items: AppPadding.values
                   .map<DropdownMenuItem<AppPadding>>(
                     (AppPadding value) => DropdownMenuItem(
@@ -33,6 +34,7 @@ class ContainerMargin extends StatelessWidget {
             const SizedBox(height: 8),
             if (cubit.margin?.isAll ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-margin-all'),
                 valueListenable: cubit.marginTop,
                 onChanged: (value) => cubit.marginTop.value = value,
                 labelText: 'All',
@@ -40,21 +42,25 @@ class ContainerMargin extends StatelessWidget {
             ],
             if (cubit.margin?.isOnly ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-margin-left'),
                 valueListenable: cubit.marginLeft,
                 onChanged: (value) => cubit.marginLeft.value = value,
                 labelText: 'Left',
               ),
               AppSlider(
+                key: const ValueKey('container-margin-right'),
                 valueListenable: cubit.marginRight,
                 onChanged: (value) => cubit.marginRight.value = value,
                 labelText: 'Right',
               ),
               AppSlider(
+                key: const ValueKey('container-margin-top'),
                 valueListenable: cubit.marginTop,
                 onChanged: (value) => cubit.marginTop.value = value,
                 labelText: 'Top',
               ),
               AppSlider(
+                key: const ValueKey('container-margin-bottom'),
                 valueListenable: cubit.marginBottom,
                 onChanged: (value) => cubit.marginBottom.value = value,
                 labelText: 'Bottom',
@@ -62,11 +68,13 @@ class ContainerMargin extends StatelessWidget {
             ],
             if (cubit.margin?.isSymmetric ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-margin-horizontal'),
                 valueListenable: cubit.marginLeft,
                 onChanged: (value) => cubit.marginLeft.value = value,
                 labelText: 'Horizontal',
               ),
               AppSlider(
+                key: const ValueKey('container-margin-vertical'),
                 valueListenable: cubit.marginTop,
                 onChanged: (value) => cubit.marginTop.value = value,
                 labelText: 'Vertical',

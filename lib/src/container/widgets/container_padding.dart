@@ -18,6 +18,7 @@ class ContainerPadding extends StatelessWidget {
         return Column(
           children: [
             AppDropdown(
+              key: const ValueKey('container-padding'),
               items: AppPadding.values
                   .map<DropdownMenuItem<AppPadding>>(
                     (AppPadding value) => DropdownMenuItem(
@@ -33,6 +34,7 @@ class ContainerPadding extends StatelessWidget {
             const SizedBox(height: 8),
             if (cubit.padding?.isAll ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-padding-all'),
                 valueListenable: cubit.paddingTop,
                 onChanged: (value) => cubit.paddingTop.value = value,
                 labelText: 'All',
@@ -40,21 +42,25 @@ class ContainerPadding extends StatelessWidget {
             ],
             if (cubit.padding?.isOnly ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-padding-left'),
                 valueListenable: cubit.paddingLeft,
                 onChanged: (value) => cubit.paddingLeft.value = value,
                 labelText: 'Left',
               ),
               AppSlider(
+                key: const ValueKey('container-padding-right'),
                 valueListenable: cubit.paddingRight,
                 onChanged: (value) => cubit.paddingRight.value = value,
                 labelText: 'Right',
               ),
               AppSlider(
+                key: const ValueKey('container-padding-top'),
                 valueListenable: cubit.paddingTop,
                 onChanged: (value) => cubit.paddingTop.value = value,
                 labelText: 'Top',
               ),
               AppSlider(
+                key: const ValueKey('container-padding-bottom'),
                 valueListenable: cubit.paddingBottom,
                 onChanged: (value) => cubit.paddingBottom.value = value,
                 labelText: 'Bottom',
@@ -62,11 +68,13 @@ class ContainerPadding extends StatelessWidget {
             ],
             if (cubit.padding?.isSymmetric ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-padding-horizontal'),
                 valueListenable: cubit.paddingLeft,
                 onChanged: (value) => cubit.paddingLeft.value = value,
                 labelText: 'Horizontal',
               ),
               AppSlider(
+                key: const ValueKey('container-padding-vertical'),
                 valueListenable: cubit.paddingTop,
                 onChanged: (value) => cubit.paddingTop.value = value,
                 labelText: 'Vertical',

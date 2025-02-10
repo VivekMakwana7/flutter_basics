@@ -19,6 +19,7 @@ class ContainerBorder extends StatelessWidget {
         return Column(
           children: [
             AppDropdown(
+              key: const ValueKey('container-border'),
               items: AppBorder.values
                   .map<DropdownMenuItem<AppBorder>>(
                     (AppBorder value) => DropdownMenuItem(
@@ -34,6 +35,7 @@ class ContainerBorder extends StatelessWidget {
             if (cubit.appBorder.isSebt) ...[
               const AppDivider(height: 8),
               ContainerBorderSide(
+                key: const ValueKey('container-border-top'),
                 title: 'Top Border Side',
                 borderColor: cubit.topBorderColor,
                 borderWidth: cubit.topBorderWidth,
@@ -47,6 +49,7 @@ class ContainerBorder extends StatelessWidget {
               ),
               const AppDivider(height: 6),
               ContainerBorderSide(
+                key: const ValueKey('container-border-bottom'),
                 title: 'Bottom Border Side',
                 borderColor: cubit.bottomBorderColor,
                 borderWidth: cubit.bottomBorderWidth,
@@ -60,6 +63,7 @@ class ContainerBorder extends StatelessWidget {
               ),
               const AppDivider(height: 6),
               ContainerBorderSide(
+                key: const ValueKey('container-border-left'),
                 title: 'Left Border Side',
                 borderColor: cubit.leftBorderColor,
                 borderWidth: cubit.leftBorderWidth,
@@ -73,6 +77,7 @@ class ContainerBorder extends StatelessWidget {
               ),
               const AppDivider(height: 6),
               ContainerBorderSide(
+                key: const ValueKey('container-border-right'),
                 title: 'Right Border Side',
                 borderColor: cubit.rightBorderColor,
                 borderWidth: cubit.rightBorderWidth,
@@ -88,6 +93,7 @@ class ContainerBorder extends StatelessWidget {
             if (cubit.appBorder.isSymmetric) ...[
               const AppDivider(height: 8),
               ContainerBorderSide(
+                key: const ValueKey('container-border-vertical'),
                 title: 'Vertical Border Side',
                 borderColor: cubit.topBorderColor,
                 borderWidth: cubit.topBorderWidth,
@@ -101,6 +107,7 @@ class ContainerBorder extends StatelessWidget {
               ),
               const AppDivider(height: 6),
               ContainerBorderSide(
+                key: const ValueKey('container-border-horizontal'),
                 title: 'Horizontal Border Side',
                 borderColor: cubit.leftBorderColor,
                 borderWidth: cubit.leftBorderWidth,
@@ -116,6 +123,7 @@ class ContainerBorder extends StatelessWidget {
             if (cubit.appBorder.isAll || cubit.appBorder.isFromSide) ...[
               const AppDivider(height: 8),
               ContainerBorderSide(
+                key: const ValueKey('container-border-all'),
                 title: 'All Border Side',
                 borderColor: cubit.topBorderColor,
                 borderWidth: cubit.topBorderWidth,

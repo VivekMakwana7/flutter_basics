@@ -26,6 +26,7 @@ class ContainerGradient extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppDropdown(
+                  key: const ValueKey('container-gradient'),
                   items: AppGradient.values
                       .map<DropdownMenuItem<AppGradient>>(
                         (AppGradient value) => DropdownMenuItem(
@@ -51,6 +52,7 @@ class ContainerGradient extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
+                        key: const ValueKey('container-gradient-box-increase'),
                         onPressed: cubit.increaseGradientColorBox,
                         child: const Text('Add 1'),
                       ),
@@ -69,6 +71,7 @@ class ContainerGradient extends StatelessWidget {
                   ],
                   const SizedBox(height: 8),
                   AppDropdown(
+                    key: const ValueKey('container-gradient-begin-alignment'),
                     items: AppAlignment.values
                         .map<DropdownMenuItem<AppAlignment>>(
                           (AppAlignment value) => DropdownMenuItem(
@@ -84,6 +87,7 @@ class ContainerGradient extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   AppDropdown(
+                    key: const ValueKey('container-gradient-end-alignment'),
                     items: AppAlignment.values
                         .map<DropdownMenuItem<AppAlignment>>(
                           (AppAlignment value) => DropdownMenuItem(
@@ -99,6 +103,7 @@ class ContainerGradient extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   AppDropdown(
+                    key: const ValueKey('container-gradient-tile-mode'),
                     items: TileMode.values
                         .map<DropdownMenuItem<TileMode>>(
                           (TileMode value) => DropdownMenuItem(
@@ -145,6 +150,7 @@ class ContainerGradient extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
+                        key: const ValueKey('container-gradient-color-radial-increase'),
                         onPressed: cubit.increaseGradientColorBox,
                         child: const Text('Add 1'),
                       ),
@@ -153,7 +159,7 @@ class ContainerGradient extends StatelessWidget {
                   const SizedBox(height: 8),
                   for (int index = 0; index < cubit.gradientColors.value.length; index++) ...[
                     AppColorPicker(
-                      key: ValueKey('gradient-color-$index'),
+                      key: ValueKey('container-gradient-color-$index'),
                       labelText: 'Color ${index + 1}',
                       initialColor: cubit.gradientColors.value[index],
                       onChanged: (color) => cubit.onGradientColorUpdate(index: index, color: color),
@@ -163,6 +169,7 @@ class ContainerGradient extends StatelessWidget {
                   ],
                   const SizedBox(height: 8),
                   AppDropdown(
+                    key: const ValueKey('container-gradient-center-alignment'),
                     items: AppAlignment.values
                         .map<DropdownMenuItem<AppAlignment>>(
                           (AppAlignment value) => DropdownMenuItem(
@@ -178,6 +185,7 @@ class ContainerGradient extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   AppSlider(
+                    key: const ValueKey('container-gradient-radius'),
                     valueListenable: cubit.gradientRadius,
                     onChanged: (value) => cubit.gradientRadius.value = value,
                     labelText: 'Radius',
@@ -186,6 +194,7 @@ class ContainerGradient extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   AppDropdown(
+                    key: const ValueKey('container-gradient-focal-alignment'),
                     items: AppAlignment.values
                         .map<DropdownMenuItem<AppAlignment>>(
                           (AppAlignment value) => DropdownMenuItem(
@@ -201,6 +210,7 @@ class ContainerGradient extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   AppSlider(
+                    key: const ValueKey('container-gradient-focal-radius'),
                     valueListenable: cubit.focalRadius,
                     onChanged: (value) => cubit.focalRadius.value = value,
                     labelText: 'Focal Radius',
@@ -208,6 +218,7 @@ class ContainerGradient extends StatelessWidget {
                     min: 0,
                   ),
                   AppDropdown(
+                    key: const ValueKey('container-gradient-tile-mode'),
                     items: TileMode.values
                         .map<DropdownMenuItem<TileMode>>(
                           (TileMode value) => DropdownMenuItem(
@@ -254,6 +265,7 @@ class ContainerGradient extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
+                        key: const ValueKey('container-gradient-color-sweep-increase'),
                         onPressed: cubit.increaseGradientColorBox,
                         child: const Text('Add 1'),
                       ),
@@ -272,6 +284,7 @@ class ContainerGradient extends StatelessWidget {
                   ],
                   const SizedBox(height: 8),
                   AppDropdown(
+                    key: const ValueKey('container-gradient-sweep-center-alignment'),
                     items: AppAlignment.values
                         .map<DropdownMenuItem<AppAlignment>>(
                           (AppAlignment value) => DropdownMenuItem(
@@ -287,18 +300,21 @@ class ContainerGradient extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   AppSlider(
+                    key: const ValueKey('container-gradient-sweep-start-angle'),
                     valueListenable: cubit.startAngle,
                     onChanged: (value) => cubit.startAngle.value = value,
                     labelText: 'Start Angle',
                   ),
                   const SizedBox(height: 8),
                   AppSlider(
+                    key: const ValueKey('container-gradient-sweep-end-angle'),
                     valueListenable: cubit.endAngle,
                     onChanged: (value) => cubit.endAngle.value = value,
                     labelText: 'End Angle',
                   ),
                   const SizedBox(height: 8),
                   AppDropdown(
+                    key: const ValueKey('container-gradient-tile-mode'),
                     items: TileMode.values
                         .map<DropdownMenuItem<TileMode>>(
                           (TileMode value) => DropdownMenuItem(
@@ -320,7 +336,7 @@ class ContainerGradient extends StatelessWidget {
                     ),
                   const SizedBox(height: 6),
                   AppTextField(
-                    key: const ValueKey('gradient-stop'),
+                    key: const ValueKey('container-gradient-sweep-stop'),
                     controller: cubit.stopController,
                     labelText: 'Stop',
                     hintText: 'Ex : 0.1, 0.4, 0.8, ...',
@@ -338,6 +354,7 @@ class ContainerGradient extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   AppSlider(
+                    key: const ValueKey('container-gradient-sweep-transform-matrix'),
                     valueListenable: cubit.gradientRadians,
                     onChanged: (value) => cubit.gradientRadians.value = value,
                     labelText: 'Radians',

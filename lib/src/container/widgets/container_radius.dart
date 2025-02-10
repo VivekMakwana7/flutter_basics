@@ -18,6 +18,7 @@ class ContainerRadius extends StatelessWidget {
         return Column(
           children: [
             AppDropdown(
+              key: const ValueKey('container-radius'),
               items: AppBorderRadius.values
                   .map<DropdownMenuItem<AppBorderRadius>>(
                     (AppBorderRadius value) => DropdownMenuItem(
@@ -33,6 +34,7 @@ class ContainerRadius extends StatelessWidget {
             const SizedBox(height: 8),
             if (cubit.radius?.isAll ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-radius-all'),
                 valueListenable: cubit.radiusTop,
                 onChanged: (value) => cubit.radiusTop.value = value,
                 labelText: 'All',
@@ -40,6 +42,7 @@ class ContainerRadius extends StatelessWidget {
             ],
             if (cubit.radius?.isCircular ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-radius-circular'),
                 valueListenable: cubit.radiusTop,
                 onChanged: (value) => cubit.radiusTop.value = value,
                 labelText: 'Circular',
@@ -47,21 +50,25 @@ class ContainerRadius extends StatelessWidget {
             ],
             if (cubit.radius?.isOnly ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-radius-left'),
                 valueListenable: cubit.radiusLeft,
                 onChanged: (value) => cubit.radiusLeft.value = value,
                 labelText: 'Left',
               ),
               AppSlider(
+                key: const ValueKey('container-radius-right'),
                 valueListenable: cubit.radiusRight,
                 onChanged: (value) => cubit.radiusRight.value = value,
                 labelText: 'Right',
               ),
               AppSlider(
+                key: const ValueKey('container-radius-top'),
                 valueListenable: cubit.radiusTop,
                 onChanged: (value) => cubit.radiusTop.value = value,
                 labelText: 'Top',
               ),
               AppSlider(
+                key: const ValueKey('container-radius-bottom'),
                 valueListenable: cubit.radiusBottom,
                 onChanged: (value) => cubit.radiusBottom.value = value,
                 labelText: 'Bottom',
@@ -69,11 +76,13 @@ class ContainerRadius extends StatelessWidget {
             ],
             if (cubit.radius?.isHorizontal ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-radius-horizontal-left'),
                 valueListenable: cubit.radiusLeft,
                 onChanged: (value) => cubit.radiusLeft.value = value,
                 labelText: 'Left',
               ),
               AppSlider(
+                key: const ValueKey('container-radius-horizontal-right'),
                 valueListenable: cubit.radiusRight,
                 onChanged: (value) => cubit.radiusRight.value = value,
                 labelText: 'Right',
@@ -81,11 +90,13 @@ class ContainerRadius extends StatelessWidget {
             ],
             if (cubit.radius?.isVertical ?? false) ...[
               AppSlider(
+                key: const ValueKey('container-radius-vertical-top'),
                 valueListenable: cubit.radiusTop,
                 onChanged: (value) => cubit.radiusTop.value = value,
                 labelText: 'Top',
               ),
               AppSlider(
+                key: const ValueKey('container-radius-vertical-bottom'),
                 valueListenable: cubit.radiusBottom,
                 onChanged: (value) => cubit.radiusBottom.value = value,
                 labelText: 'Bottom',

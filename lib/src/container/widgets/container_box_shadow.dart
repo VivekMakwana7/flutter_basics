@@ -27,6 +27,7 @@ class ContainerBoxShadow extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 ElevatedButton(
+                  key: const ValueKey('container-box-shadow-increase'),
                   onPressed: cubit.increaseBoxShadow,
                   child: const Text('Add 1'),
                 ),
@@ -35,12 +36,14 @@ class ContainerBoxShadow extends StatelessWidget {
             const SizedBox(height: 8),
             for (int index = 0; index < cubit.boxShadows.length; index++) ...[
               AppColorPicker(
+                key: ValueKey('container-box-shadow-color-$index'),
                 labelText: 'Color',
                 initialColor: cubit.boxShadows[index].color,
                 onChanged: (color) => cubit.onBoxShadowColor(index: index, color: color),
               ),
               const SizedBox(height: 6),
               AppSlider(
+                key: ValueKey('container-box-shadow-offset-dx-$index'),
                 valueListenable: cubit.boxShadows[index].dx,
                 onChanged: (value) => cubit.boxShadows[index].dx.value = value,
                 labelText: 'Offset - dx',
@@ -49,6 +52,7 @@ class ContainerBoxShadow extends StatelessWidget {
               ),
               const SizedBox(height: 6),
               AppSlider(
+                key: ValueKey('container-box-shadow-offset-dy-$index'),
                 valueListenable: cubit.boxShadows[index].dy,
                 onChanged: (value) => cubit.boxShadows[index].dy.value = value,
                 labelText: 'Offset - dy',
@@ -57,6 +61,7 @@ class ContainerBoxShadow extends StatelessWidget {
               ),
               const SizedBox(height: 6),
               AppSlider(
+                key: ValueKey('container-box-shadow-spread-radius-$index'),
                 valueListenable: cubit.boxShadows[index].spreadRadius,
                 onChanged: (value) => cubit.boxShadows[index].spreadRadius.value = value,
                 labelText: 'Spread Radius',
@@ -65,12 +70,14 @@ class ContainerBoxShadow extends StatelessWidget {
               ),
               const SizedBox(height: 6),
               AppSlider(
+                key: ValueKey('container-box-shadow-blur-radius-$index'),
                 valueListenable: cubit.boxShadows[index].blurRadius,
                 onChanged: (value) => cubit.boxShadows[index].blurRadius.value = value,
                 labelText: 'Blur Radius',
               ),
               const SizedBox(height: 6),
               AppDropdown(
+                key: ValueKey('container-box-shadow-blur-style-$index'),
                 items: BlurStyle.values
                     .map<DropdownMenuItem<BlurStyle>>(
                       (BlurStyle value) => DropdownMenuItem(
